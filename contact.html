@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Manuel Chua - Frontend Developer">
+    <meta name="keywords" content="contact, hire, frontend developer, web development services">
+    <meta name="author" content="Manuel Chua">
+    <title>Contact - Manuel Chua</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        /* Same CSS as index.html */
+        :root {
+            --primary-color: #3b82f6;
+            --secondary-color: #60a5fa;
+            --accent-color: #93c5fd;
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --border-color: #e2e8f0;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 0.75rem;
+            --spacing-md: 1.25rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --primary-color: #60a5fa;
+                --secondary-color: #93c5fd;
+                --accent-color: #bfdbfe;
+                --text-primary: #f1f5f9;
+                --text-secondary: #cbd5e1;
+                --bg-primary: #0f172a;
+                --bg-secondary: #1e293b;
+                --bg-tertiary: #334155;
+                --border-color: #475569;
+                --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+                --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25);
+                --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: var(--spacing-xs);
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--spacing-md) 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+        }
+
+        .logo::before {
+            content: "👨‍💻";
+            font-size: 1.2rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: var(--spacing-xs) var(--spacing-sm);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: var(--bg-secondary);
+        }
+
+        nav a.active {
+            color: var(--primary-color);
+            background-color: var(--bg-tertiary);
+        }
+
+        /* Hero Section */
+        .page-hero {
+            text-align: center;
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+            margin-bottom: var(--spacing-xl);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Contact Layout */
+        .contact-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        @media (max-width: 768px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: var(--spacing-md);
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: var(--spacing-xs);
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: var(--spacing-sm);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            background-color: var(--bg-primary);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: var(--spacing-md);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background-color: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-md);
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            border-radius: var(--radius-sm);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-link:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: var(--spacing-lg) 0;
+            margin-top: var(--spacing-xl);
+            border-top: 1px solid var(--border-color);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: var(--spacing-sm);
+            }
+
+            nav ul {
+                gap: var(--spacing-sm);
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Manuel Chua</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Get in Touch</h1>
+            <p style="font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Have a project in mind? Let's discuss how we can work together to bring your ideas to life.</p>
+        </div>
+    </section>
+
+    <!-- Contact Layout -->
+    <main class="container">
+        <div class="contact-layout">
+            <!-- Contact Form -->
+            <section class="contact-form">
+                <h2>Send a Message</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="What is this regarding?">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Inquiry Type</label>
+                        <select id="category" name="category">
+                            <option value="">Select a category</option>
+                            <option value="project">Project Inquiry</option>
+                            <option value="collaboration">Collaboration</option>
+                            <option value="question">Technical Question</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Tell me about your project or inquiry..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+
+            <!-- Contact Info -->
+            <section class="contact-info">
+                <h2>Contact Information</h2>
+                <p style="margin-bottom: var(--spacing-lg); color: var(--text-secondary);">Feel free to reach out through any of these channels. I typically respond within 24 hours.</p>
+                
+                <div class="info-item">
+                    <div class="info-icon">✉️</div>
+                    <div>
+                        <h3>Email</h3>
+                        <p style="color: var(--text-secondary);">For project inquiries and collaborations</p>
+                        <a href="mailto:manuel@example.com" style="color: var(--primary-color); font-weight: 500;">manuel@example.com</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">💼</div>
+                    <div>
+                        <h3>LinkedIn</h3>
+                        <p style="color: var(--text-secondary);">Professional networking and updates</p>
+                        <a href="https://linkedin.com/in/manuelchua" style="color: var(--primary-color); font-weight: 500;" target="_blank">linkedin.com/in/manuelchua</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">💻</div>
+                    <div>
+                        <h3>GitHub</h3>
+                        <p style="color: var(--text-secondary);">Check out my open source projects</p>
+                        <a href="https://github.com/manuelchua" style="color: var(--primary-color); font-weight: 500;" target="_blank">github.com/manuelchua</a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon">📍</div>
+                    <div>
+                        <h3>Location</h3>
+                        <p style="color: var(--text-secondary);">Based in San Francisco, CA</p>
+                        <p style="color: var(--text-primary); font-weight: 500;">Open to remote work worldwide</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: var(--spacing-lg);">Connect with me</h3>
+                <div class="social-links">
+                    <a href="https://twitter.com/manuelchua" class="social-link" target="_blank" aria-label="Twitter">𝕏</a>
+                    <a href="https://github.com/manuelchua" class="social-link" target="_blank" aria-label="GitHub">Git</a>
+                    <a href="https://linkedin.com/in/manuelchua" class="social-link" target="_blank" aria-label="LinkedIn">in</a>
+                    <a href="https://codepen.io/manuelchua" class="social-link" target="_blank" aria-label="CodePen">Pen</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Manuel Chua. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
